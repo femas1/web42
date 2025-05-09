@@ -1,0 +1,157 @@
+/* PALETTE https://coolors.co/palette/f47068-ffb3ae-fff4f1-1697a6-0e606b-ffc24b */
+
+:root {
+  --color-primary: #1697A6;
+  --color-primary-light: #f8fdfd;
+  --color-primary-very-dark: #1D3557;
+  --color-secondary: #F1FAEE;
+  --color-warning: #E63946;
+  --light-grey: #f8f8f8;
+  --text-primary: #1f1f1f;
+  --text-primary-negative: #f8f8f8;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+main {
+  min-height: calc(100vh - 14rem);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.nav, .footer {
+  background-color: var(--color-primary-very-dark);
+}
+
+.nav,
+.footer {
+  padding: .3rem 1rem;
+  width: 100vw;
+  height: 7rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_link,
+.footer_link {
+  padding: 1.5rem;
+  margin: 0.2rem;
+  color: var(--text-primary-negative);
+}
+
+.search {
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FERIENHÄUSER CARDS STYLING  */
+
+.house {
+  padding: .5rem;
+  display: flex;
+}
+
+.house_picture {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.house_picture > img {
+ max-width: 100%;
+}
+
+.house_information {
+  width: 40%;
+  background-color: var(--light-grey);
+  border-radius: 0 2rem 2rem 0;
+  padding: 1rem;
+}
+
+.house_information_list {
+    list-style-type: none;
+}
+
+.house_information_list_item {
+  margin: .4rem 0;
+}
+
+.house_information_list_item > span{
+  background-color: #fff;
+  padding: .3rem .5rem;
+  border-radius: .2rem;
+}
+
+/* FORMS */
+
+.form {
+background-color: #fff;
+display: flex;
+flex-direction: column;
+width: 25rem;
+}
+
+.form > * {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.form-btn {
+width: 8rem;
+padding: .5rem 2rem;
+}
+
+/* BUTTONS  */
+
+.btn {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background-color: var(--color-primary);
+  color: var(--light-grey);
+  font-weight: 600;
+}
+
+.btn > a {
+  color: var(--light-grey);
+}
+
+.btn:active {
+  transform: translate(1px, -1px)
+}
+
+.btn-warning {
+  background-color: var(--color-warning);
+}

@@ -1,0 +1,72 @@
+<?php 
+
+function signupEmpty($sanitized_user_name, $sanitized_user_email, $password, $repeat_password) {
+$result;
+if(empty($sanitized_user_name) || empty($sanitized_user_email) || empty($password) || empty($repeat_password)){
+   $result = true;
+} else {
+   $result = false;
+};
+return $result;
+};
+
+function invalidEmail($sanitized_user_email) {
+   $result;
+   if(!filter_var($sanitized_user_email, FILTER_VALIDATE_EMAIL)){
+      $result = true; 
+   } else {
+      $result = false; 
+   }
+   return $result;
+};
+
+function pwdMatch($password, $repeat_password){
+   $result; 
+   if($password !== $repeat_password){
+      $result = true; 
+   } else {
+      $result = false;
+   }
+   return $result;
+};
+
+function userExists($conn, $sanitized_user_email){
+   $result;
+   $sql = "SELECT * FROM users WHERE email = ?;";
+   $stmt = mysqli_stmt_init($conn);
+   if(!mysqli_stmt_prepare($stmt, $sql)){
+      header('Location: ../views/signup.php?error=generic-error');
+        exit();
+   }
+   mysqli_stmt_bind_param($stmt, "s", $sanitized_user_email);
+   mysqli_execute($stmt);
+
+   $data = mysqli_stmt_get_result($stmt);
+
+   if($row = mysqli_fetch_assoc($data)){
+      return $row;
+   } else {
+      $result = false; 
+   }
+   mysqli_stmt_close($stmt);
+   return $result;
+};
+
+function createUser($conn, $sanitized_user_name, $sanitized_user_email, $password){
+   $sql = "INSERT INTO users (user_name, email, password) VALUES (?, ?, ?);";
+   $stmt = mysqli_stmt_init($conn);
+   if(!mysqli_stmt_prepare($stmt, $sql)){
+      header('Location: ../views/signup.php?error=generic-error');
+        exit();
+   }
+
+   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+   mysqli_stmt_bind_param($stmt, "sss", $sanitized_user_name, $sanitized_user_email, $hashed_password);
+   mysqli_execute($stmt);
+
+   mysqli_stmt_close($stmt);
+   header('Location: ../views/signup.php?error=none');
+        exit();
+
+};

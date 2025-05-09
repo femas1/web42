@@ -1,0 +1,37 @@
+<?php 
+
+include_once '../config/db.php';
+include_once '../handlers/signup.php';
+
+if(isset($_POST['submit'])){
+
+    $sanitized_user_name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $sanitized_user_email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
+    $repeat_password = $_POST['repeat-password'];
+
+    if(signupEmpty($sanitized_user_name, $sanitized_user_email, $password, $repeat_password) !== false){
+        header('Location: ../views/signup.php?error=emptyinput');
+        exit();
+    };  
+
+    if(invalidEmail($sanitized_user_email) !== false){
+        header('Location: ../views/signup.php?error=invalidmail');
+        exit();
+    };
+
+    if(pwdMatch($password, $repeat_password) !== false){
+        header('Location: ../views/signup.php?error=pwdmatcherror');
+        exit();
+    };
+
+    if(userExists($conn, $sanitized_user_email) !== false){
+        header('Location: ../views/signup.php?error=userexists');
+        exit();
+    };
+
+    createUser($conn, $sanitized_user_name, $sanitized_user_email, $password);
+
+} else {
+    header('Location: ../views/signup.php');
+};
