@@ -32,7 +32,7 @@ function loginUser($conn, $sanitized_user_email, $password) {
     session_start();
     $_SESSION['user_session_id'] = $userExists['user_id'];
     $_SESSION['user_session_email'] = $userExists['email'];
-    $_SESSION['user_session_name'] = $userExists['user_name'];
+    $_SESSION['user_session_name'] = $userExists['first_name'];
     header('Location: ../index.php');
     exit();
 }

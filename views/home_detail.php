@@ -35,7 +35,7 @@
                 <li class="home_information_list_item"><span><?php echo $home_value['size']?>m²</span></li>
                 <li class="home_information_list_item"><span><?php echo $home_value['beds']?> Gäste</span></li>
                 <li class="home_information_list_item"><span>€ <?php echo $home_value['price']?> pro Nacht</span></li>
-                <li class="home_information_list_item"><span>Gastgeber: <a href="../views/user_detail.php?user_id=<?php echo $home_value['user_id']?>"><?php echo $user["user_name"]?> </a></span></li>
+                <li class="home_information_list_item"><span>Gastgeber: <a href="../views/user_detail.php?user_id=<?php echo $home_value['user_id']?>"><?php echo $user["first_name"]?> </a></span></li>
             </ul>
             <!-- edit and delete button only show if user is logged in and is host -->
             <?php };?>

@@ -5,12 +5,13 @@ include_once '../handlers/signup.php';
 
 if(isset($_POST['submit'])){
 
-    $sanitized_user_name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $sanitized_first_name = filter_var($_POST['first_name'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $sanitized_last_name = filter_var($_POST['last_name'], FILTER_SANITIZE_SPECIAL_CHARS);
     $sanitized_user_email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
     $repeat_password = $_POST['repeat-password'];
 
-    if(signupEmpty($sanitized_user_name, $sanitized_user_email, $password, $repeat_password) !== false){
+    if(signupEmpty($sanitized_first_name, $sanitized_last_name, $sanitized_user_email, $password, $repeat_password) !== false){
         header('Location: ../views/signup.php?error=emptyinput');
         exit();
     };  
@@ -30,7 +31,7 @@ if(isset($_POST['submit'])){
         exit();
     };
 
-    createUser($conn, $sanitized_user_name, $sanitized_user_email, $password);
+    createUser($conn, $sanitized_first_name, $sanitized_last_name, $sanitized_user_email, $password);
 
 } else {
     header('Location: ../views/signup.php');

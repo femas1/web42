@@ -1,8 +1,8 @@
 <?php 
 
-function signupEmpty($sanitized_user_name, $sanitized_user_email, $password, $repeat_password) {
+function signupEmpty($sanitized_first_name, $sanitized_last_name, $sanitized_user_email, $password, $repeat_password) {
 $result;
-if(empty($sanitized_user_name) || empty($sanitized_user_email) || empty($password) || empty($repeat_password)){
+if(empty($sanitized_first_name) || empty($sanitized_last_name) || empty($sanitized_user_email) || empty($password) || empty($repeat_password)){
    $result = true;
 } else {
    $result = false;
@@ -52,8 +52,8 @@ function userExists($conn, $sanitized_user_email){
    return $result;
 };
 
-function createUser($conn, $sanitized_user_name, $sanitized_user_email, $password){
-   $sql = "INSERT INTO users (user_name, email, password) VALUES (?, ?, ?);";
+function createUser($conn, $sanitized_first_name, $sanitized_last_name, $sanitized_user_email, $password){
+   $sql = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);";
    $stmt = mysqli_stmt_init($conn);
    if(!mysqli_stmt_prepare($stmt, $sql)){
       header('Location: ../views/signup.php?error=generic-error');
@@ -62,7 +62,7 @@ function createUser($conn, $sanitized_user_name, $sanitized_user_email, $passwor
 
    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-   mysqli_stmt_bind_param($stmt, "sss", $sanitized_user_name, $sanitized_user_email, $hashed_password);
+   mysqli_stmt_bind_param($stmt, "ssss", $sanitized_first_name, $sanitized_last_name, $sanitized_user_email, $hashed_password);
    mysqli_execute($stmt);
 
    mysqli_stmt_close($stmt);

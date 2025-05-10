@@ -12,9 +12,13 @@
     <main class="main-container">
     <form class="newHome-form form" action="../includes/signup.inc.php" method="POST">
         <h2>Neues Konto anlegen</h2>
-                <div class="name-input">
-                    <label for="name">Name</label>
-                    <input type="text" name="name">
+                <div class="first-name-input">
+                    <label for="first_name">Vorname</label>
+                    <input type="text" name="first_name">
+                </div>
+                <div class="last-name-input">
+                    <label for="last_name">Nachname</label>
+                    <input type="text" name="last_name">
                 </div>
                 <div class="email-input">
                     <label for="email">E-Mail-Adresse</label>
