@@ -61,6 +61,10 @@ a {
   border-radius: 0.4rem;
 }
 
+.search_bar {
+  color: var(--text-primary);
+}
+
 .link {
   display: inline-block;
   text-decoration: none;
@@ -77,37 +81,39 @@ a {
 
 /* FERIENHÄUSER CARDS STYLING  */
 
-.house {
+.home {
+  width: 100%;
   padding: .5rem;
   display: flex;
+  justify-content: center;
 }
 
-.house_picture {
+.home_picture {
   width: 60%;
   display: flex;
   align-items: center;
 }
 
-.house_picture > img {
+.home_picture > img {
  max-width: 100%;
 }
 
-.house_information {
-  width: 40%;
+.home_information {
+  
   background-color: var(--light-grey);
   border-radius: 0 2rem 2rem 0;
   padding: 1rem;
 }
 
-.house_information_list {
+.home_information_list {
     list-style-type: none;
 }
 
-.house_information_list_item {
+.home_information_list_item {
   margin: .4rem 0;
 }
 
-.house_information_list_item > span{
+.home_information_list_item > span{
   background-color: #fff;
   padding: .3rem .5rem;
   border-radius: .2rem;
@@ -142,6 +148,7 @@ padding: .5rem 2rem;
   background-color: var(--color-primary);
   color: var(--light-grey);
   font-weight: 600;
+  margin: .4rem;
 }
 
 .btn > a {

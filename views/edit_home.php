@@ -19,15 +19,15 @@
      $user_id = $_GET['user_id'];
     ?>
     
-    <div class="house">
-        <figure class="house_picture">
-            <img src="../assets/sample-home.jpg" alt="house-outdoor-1">
+    <div class="home">
+        <figure class="home_picture">
+            <img src="../assets/sample-home.jpg" alt="home-outdoor-1">
         </figure>
-        <div class="house_information">
-            <h2 class="house_information_heading">Informationen</h2>
+        <div class="home_information">
+            <h2 class="home_information_heading">Informationen</h2>
             
          
-<form class="house_information_list" action="../handlers/edit_home.php" method="POST">
+<form class="home_information_list" action="../handlers/edit_home.php" method="POST">
             <input type="hidden" name="home_id" value="<?php echo $id;?>">
             <div class="name-input">
                 <label for="name">Name</label>
@@ -50,11 +50,11 @@
                 <input type="number" name="price" value="<?php echo $price?>">
             </div>
             <input type="hidden" name="user_id" value="<?php echo $user_id?>">
-           <button class="btn house_information__btn" type="submit" name="submit">Änderungen speichern</button>
+           <button class="btn home_information__btn" type="submit" name="submit">Änderungen speichern</button>
            </form>
            <form action="./handlers/delete_home.php" method="POST">
             <input type="hidden" name="home_id" value="id">
-           <button type="submit" class="btn btn-warning house_information_delete_btn">Unterkunft entfernen</button>
+           <button type="submit" class="btn btn-warning home_information_delete_btn">Unterkunft entfernen</button>
            </form>
         </div>
       </div>

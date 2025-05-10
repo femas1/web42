@@ -17,7 +17,7 @@
 
     <main class="main-container">
 
-    <h3>Vermieter: </h3><p><?php echo $user['user_name'];?></p>
+    <h3>Gastgeber: </h3><p><?php echo $user['user_name'];?></p>
     <h3>Kontakt:</h3> <p><?php echo $user['email'];?></p>
 <!-- The "Konto Einstellungen" button is only shown if 1. The user is logged in 2. If the logged in user is viewing its own user detail page (otherwise each user could change the settings of all other users by just being logged in) -->
     <?php if(isset($_SESSION['user_session_id']) && $_SESSION['user_session_id'] == $_GET['user_id']){echo "<a href='./edit_user.php?user_id=" . $user['user_id'] . "' class='btn'>Konto Einstellungen</a>";} ?>

@@ -2,9 +2,9 @@
 <?php include dirname (__DIR__) . '/config/config.php'?>
 
 <nav class="nav">
-      <input type="text" class="nav_link link search" placeholder="Ferienhaus suchen..."/>
+      <input type="text" class="nav_link link search_bar" placeholder="Ferienhaus suchen..."/>
 
-      <a href="/ferienhaus/index.php" class="nav_link link home">Home</a>
+      <a href="/ferienhaus/index.php" class="nav_link link">Home</a>
 <!-- Only show mein konto if there is a session  -->
  <?php if (isset($_SESSION['user_session_id'])) {
       $user_id = $_SESSION['user_session_id'];
